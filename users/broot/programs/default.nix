@@ -28,11 +28,4 @@
     vscode
     telegram-desktop
   ];
-
-  programs.thunar = {
-    enable = true;
-    plugins = with pkgs.xfce; [
-      thunar-archive-plugin
-    ];
-  };
 }
