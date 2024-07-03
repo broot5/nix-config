@@ -1,4 +1,4 @@
-{
+{ pkgs, ... }: {
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
@@ -11,7 +11,7 @@
       sansSerif = [ "Pretendard JP" ];
     };
   };
-  home.packages = [
+  home.packages = with pkgs; [
     pretendard-jp
     jetbrains-mono
     iosevka

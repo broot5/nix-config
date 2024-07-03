@@ -65,7 +65,7 @@
       "wireplumber" = {
         format = "{icon} {volume}%";
         format-muted = "";
-        format-icons = [ "", "", "" ];
+        format-icons = [ "" "" "" ];
         on-click = "helvum";
       };
       "tray" = {

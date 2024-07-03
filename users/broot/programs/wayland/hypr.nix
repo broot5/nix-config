@@ -8,7 +8,7 @@
     blueman-applet
   ];
 
-  packages.mako = {
+  programs.mako = {
     enable = true;
     defaultTimeout = 4;
   };

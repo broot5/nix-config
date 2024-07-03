@@ -11,17 +11,17 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     ../../modules/autoUpgrade.nix
-    ../../modules/bluetooh.nix
+    ../../modules/bluetooth.nix
     ../../modules/boot.nix
+    ../../modules/file.nix
     ../../modules/gc.nix
-    ../../modules/mount.nix
     ../../modules/networking.nix
     ../../modules/nix.nix
     ../../modules/pipewire.nix
     ../../modules/polkit.nix
     ../../modules/swap.nix
     ../../modules/time.nix
-    ../../modules/virtualization.nix
+    ../../modules/virtualisation.nix
 
     inputs.home-manager.nixosModules.home-manager
   ];
