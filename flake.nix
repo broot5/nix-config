@@ -1,5 +1,5 @@
 {
-  description: "My NixOS Config";
+  description = "My NixOS Config";
 
   nixConfig = {
     substituters = [
