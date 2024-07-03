@@ -16,7 +16,7 @@
     jetbrains-mono
     iosevka
     (nerdfonts.override {
-      fonts = [ "Jetbrains Mono" "Iosevka" ];
+      fonts = [ "JetBrainsMono" "Iosevka" ];
     })
   ];
 }

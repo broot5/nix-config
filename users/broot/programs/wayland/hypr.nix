@@ -4,11 +4,11 @@
     tofi
     swww
     wlogout
-    nm-applet
-    blueman-applet
+    networkmanagerapplet
+    #blueman-applet
   ];
 
-  programs.mako = {
+  services.mako = {
     enable = true;
     defaultTimeout = 4;
   };

@@ -37,6 +37,7 @@
     extraGroups = [ "wheel" ];
     uid = 1000;
     shell = pkgs.fish;
+    ignoreShellProgramCheck = true;
   };
 
   home-manager = {
@@ -45,4 +46,6 @@
     useUserPackages = true;
     users.broot = import ../../users/broot;
   };
+
+  system.stateVersion = "24.05";
 }
