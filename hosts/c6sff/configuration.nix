@@ -30,6 +30,15 @@
 
   networking.hostName = "c6sff";
 
+  users.users.broot = {
+    isNormalUser = true;
+    home = "/home/broot";
+    initialPassword = "password";
+    extraGroups = [ "wheel" ];
+    uid = 1000;
+    shell = pkgs.fish;
+  };
+
   home-manager = {
     extraSpecialArgs = { inherit inputs outputs; };
     useGlobalPkgs = true;

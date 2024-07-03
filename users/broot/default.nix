@@ -12,15 +12,6 @@
     allowUnfreePredictate = _: true;
   };
 
-  users.users.broot = {
-    isNormalUser = true;
-    home = "/home/broot";
-    initialPassword = "password";
-    extraGroups = [ "wheel" ];
-    uid = 1000;
-    shell = pkgs.fish;
-  };
-
   home.username = "broot";
   home.homeDirectory = "/home/broot";
 
