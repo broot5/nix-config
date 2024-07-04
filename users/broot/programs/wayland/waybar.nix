@@ -53,7 +53,7 @@
         on-click = "helvum";
       };
       "tray" = {
-        spaceing = 10;
+        spacing = 10;
       };
       "disk" = {
         format = "<span foreground=\"#A7C080\" weight=\"bold\">{path}</span> {used}% ";
