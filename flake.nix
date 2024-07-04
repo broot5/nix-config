@@ -21,8 +21,6 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
-
-    catppuccin.url = "github:catppuccin/nix";
   };
 
   outputs =
@@ -30,7 +28,6 @@
     , nixpkgs
     , home-manager
     , nixos-hardware
-    , catppuccin
     , ...
     } @ inputs:
     let

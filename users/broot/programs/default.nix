@@ -16,6 +16,8 @@
     btop
     neovim
 
+    nixpkgs-fmt
+
     imv
     mpv
     helvum
@@ -28,4 +30,6 @@
     vscode
     telegram-desktop
   ];
+
+  services.udiskie.enable = true;
 }

@@ -5,6 +5,4 @@
       thunar-archive-plugin
     ];
   };
-
-  services.gvfs.enable = true;
 }
