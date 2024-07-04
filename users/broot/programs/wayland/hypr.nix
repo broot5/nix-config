@@ -51,6 +51,7 @@
         ", preferred, auto, 2"
       ];
       exec-once = [
+        "waybar"
         "lxqt-policykit-agent"
         "mako"
         "swww-daemon"

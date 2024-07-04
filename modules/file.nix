@@ -6,4 +6,7 @@
       thunar-archive-plugin
     ];
   };
+  environment.systemPackages = with pkgs; [
+    cryptsetup
+  ];
 }

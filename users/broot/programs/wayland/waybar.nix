@@ -1,7 +1,6 @@
 {
   programs.waybar = {
     enable = true;
-    systemd.enable = true;
     settings.mainBar = {
       layer = "top";
       position = "top";
@@ -53,6 +52,7 @@
         on-click = "helvum";
       };
       "tray" = {
+        icon-size = 20;
         spacing = 10;
       };
       "disk" = {
