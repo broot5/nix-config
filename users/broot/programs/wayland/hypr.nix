@@ -36,7 +36,7 @@
 
   services.mako = {
     enable = true;
-    defaultTimeout = 4;
+    defaultTimeout = 5;
   };
 
   wayland.windowManager.hyprland = {
@@ -51,17 +51,17 @@
         ", preferred, auto, 2"
       ];
       exec-once = [
-        "waybar"
         "lxqt-policykit-agent"
         "mako"
         "swww-daemon"
         "swww-restore"
         "nm-applet"
         "blueman-applet"
+        "udiskie &"
       ];
       env = [
-        "XCURSOR_SIZE,72"
-        "HYPRCURSOR_SIZE,72"
+        "XCURSOR_SIZE,24"
+        "HYPRCURSOR_SIZE,24"
       ];
       general = {
         gaps_in = 5;
