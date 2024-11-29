@@ -26,7 +26,6 @@ in
                 type = "luks";
                 name = "crypted";
                 settings.allowDiscards = true;
-                passwordFile = "/tmp/secret.key"; # Interactive
                 content = {
                   type = "btrfs";
                   extraArgs = [

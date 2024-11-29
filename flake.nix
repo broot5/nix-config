@@ -38,7 +38,7 @@
       nixos-hardware,
       spicetify-nix,
       ...
-    }:
+    }@inputs:
     {
       nixosConfigurations.c6sff = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
