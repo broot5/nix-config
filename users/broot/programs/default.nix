@@ -1,7 +1,9 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   imports = [
     ./wayland
     ./git.nix
+    ./spotify.nix
   ];
 
   home.packages = with pkgs; [
@@ -16,7 +18,7 @@
     btop
     neovim
 
-    nixpkgs-fmt
+    nixfmt-rfc-style
 
     imv
     mpv
@@ -25,10 +27,10 @@
     yt-dlp
     upscayl
 
-    spotify
     firefox-bin
     vscode
     telegram-desktop
+    sparrow
   ];
 
   services.udiskie.enable = true;

@@ -1,4 +1,11 @@
-{ inputs, lib, config, pkgs, ... }: {
+{
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}:
+{
   imports = [
     ./programs
     ./fonts.nix
@@ -7,11 +14,6 @@
     ./theme.nix
   ];
 
-  nixpkgs.config = {
-    allowUnfree = true;
-    allowUnfreePredictate = _: true;
-  };
-
   home.username = "broot";
   home.homeDirectory = "/home/broot";
 
@@ -19,5 +21,5 @@
 
   systemd.user.startServices = "sd-switch";
 
-  home.stateVersion = "24.05";
+  home.stateVersion = "24.11";
 }

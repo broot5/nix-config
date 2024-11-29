@@ -17,27 +17,43 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
+    home-manager = {
+      url = "github:nix-community/home-manager";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
+
+    spicetify-nix = {
+      url = "github:Gerg-L/spicetify-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs =
-    { self
-    , nixpkgs
-    , home-manager
-    , nixos-hardware
-    , ...
-    } @ inputs:
-    let
-      inherit (self) outputs;
-    in
+    {
+      self,
+      nixpkgs,
+      home-manager,
+      nixos-hardware,
+      spicetify-nix,
+      ...
+    }:
     {
       nixosConfigurations.c6sff = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
-        specialArgs = { inherit inputs outputs; };
+        specialArgs = {
+          inherit inputs;
+        };
         modules = [ ./hosts/c6sff/configuration.nix ];
+      };
+
+      nixosConfigurations.book4 = nixpkgs.lib.nixosSystem {
+        system = "x86_64-linux";
+        specialArgs = {
+          inherit inputs;
+        };
+        modules = [ ./hosts/book4/configuration.nix ];
       };
     };
 }
