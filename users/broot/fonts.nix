@@ -1,4 +1,5 @@
-{ pkgs, ... }: {
+{ pkgs, ... }:
+{
   fonts.fontconfig = {
     enable = true;
     defaultFonts = {
@@ -15,8 +16,7 @@
     pretendard-jp
     jetbrains-mono
     iosevka
-    (nerdfonts.override {
-      fonts = [ "JetBrainsMono" "Iosevka" ];
-    })
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.iosevka
   ];
 }

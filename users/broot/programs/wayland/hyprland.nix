@@ -120,7 +120,7 @@
         };
       };
 
-      guestures = {
+      gestures = {
         workspace_swipe = false;
       };
 

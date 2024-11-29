@@ -2,9 +2,9 @@
   programs.fish = {
     enable = true;
     interactiveShellInit = ''
-      if uwsm check may-start && uwsm select; then
+      if uwsm check may-start; and uwsm select
         exec systemd-cat -t uwsm_start uwsm start default
-      fi
+      end
     '';
     shellAliases = {
       sd = "shutdown -h now";
