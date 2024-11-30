@@ -5,16 +5,21 @@
       layer = "top";
       position = "top";
       height = 40;
-      modules-left = [ "hyprland/workspaces" "hyprland/window" ];
+      modules-left = [
+        "hyprland/workspaces"
+        "hyprland/window"
+      ];
       modules-center = [ "clock" ];
-      modules-right = [ "group/system" "group/hardware" "custom/wlogout" ];
+      modules-right = [
+        "group/system"
+        "custom/wlogout"
+      ];
       "group-system" = {
         orientation = "horizontal";
-        modules = [ "wireplumber" "tray" ];
-      };
-      "group-hardware" = {
-        orientation = "horizontal";
-        modules = [ "disk" "cpu" "memory" ];
+        modules = [
+          "wireplumber"
+          "tray"
+        ];
       };
       "hyprland/workspaces" = {
         format = "{icon}";
@@ -48,22 +53,16 @@
       "wireplumber" = {
         format = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\">{icon}</span> {volume}% ";
         format-muted = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\"></span> ";
-        format-icons = [ "" "" "" ];
+        format-icons = [
+          ""
+          ""
+          ""
+        ];
         on-click = "helvum";
       };
       "tray" = {
         icon-size = 20;
         spacing = 10;
-      };
-      "disk" = {
-        format = "<span foreground=\"#A7C080\" weight=\"bold\">{path}</span> {used}% ";
-        path = "/";
-      };
-      "cpu" = {
-        foramt = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\" weight=\"bold\">CPU</span> {usage}% ";
-      };
-      "memory" = {
-        format = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\" weight=\"bold\">RAM</span> {}% ";
       };
       "custom/wlogout" = {
         format = "";
@@ -142,4 +141,3 @@
     '';
   };
 }
-
