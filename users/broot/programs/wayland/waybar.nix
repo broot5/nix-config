@@ -14,7 +14,7 @@
         "group/system"
         "custom/wlogout"
       ];
-      "group-system" = {
+      "group/system" = {
         orientation = "horizontal";
         modules = [
           "wireplumber"
@@ -83,7 +83,7 @@
           color: #D3C6AA;
       }
 
-      #window, #clock, #system, #hardware {
+      #window, #clock, #system {
           margin: 5px;
           padding: 0 10px;
           background-color: #272E33;
