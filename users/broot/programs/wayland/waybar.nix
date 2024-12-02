@@ -14,7 +14,7 @@
         "group/system"
         "custom/wlogout"
       ];
-      "group-system" = {
+      "group/system" = {
         orientation = "horizontal";
         modules = [
           "wireplumber"
@@ -51,8 +51,8 @@
         };
       };
       "wireplumber" = {
-        format = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\">{icon}</span> {volume}% ";
-        format-muted = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\"></span> ";
+        format = "<span foreground=\"#A7C080\">{icon}</span> {volume}% <span foreground=\"#3D484D\">|</span> ";
+        format-muted = "<span foreground=\"#A7C080\"></span> <span foreground=\"#3D484D\">|</span> ";
         format-icons = [
           ""
           ""
@@ -83,7 +83,7 @@
           color: #D3C6AA;
       }
 
-      #window, #clock, #system, #hardware {
+      #window, #clock, #system {
           margin: 5px;
           padding: 0 10px;
           background-color: #272E33;

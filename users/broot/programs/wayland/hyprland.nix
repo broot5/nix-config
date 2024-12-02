@@ -27,8 +27,8 @@
       ];
 
       general = {
-        gaps_in = 5;
-        gaps_out = 20;
+        gaps_in = 3;
+        gaps_out = 6;
 
         border_size = 2;
 
@@ -116,12 +116,12 @@
         sensitivity = 0;
 
         touchpad = {
-          natural_scroll = false;
+          natural_scroll = true;
         };
       };
 
       gestures = {
-        workspace_swipe = false;
+        workspace_swipe = true;
       };
 
       device = {
