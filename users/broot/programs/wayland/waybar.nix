@@ -51,8 +51,8 @@
         };
       };
       "wireplumber" = {
-        format = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\">{icon}</span> {volume}% ";
-        format-muted = "<span foreground=\"#3D484D\">|</span> <span foreground=\"#A7C080\"></span> ";
+        format = "<span foreground=\"#A7C080\">{icon}</span> {volume}% <span foreground=\"#3D484D\">|</span> ";
+        format-muted = "<span foreground=\"#A7C080\"></span> <span foreground=\"#3D484D\">|</span> ";
         format-icons = [
           ""
           ""
