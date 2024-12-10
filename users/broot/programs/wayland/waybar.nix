@@ -44,11 +44,6 @@
       "clock" = {
         format = "{:%H:%M}";
         format-alt = "{:%F %H:%M}";
-        tooltip-format = "{calendar}";
-        calendar = {
-          mode = "year";
-          mode-mon-col = 3;
-        };
       };
       "tray" = {
         icon-size = 20;
@@ -77,7 +72,8 @@
           "dnd-none" = "";
           "inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
           "inhibited-none" = "";
-          "dnd-inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-inhibited-notification" =
+            "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
           "dnd-inhibited-none" = "";
         };
         return-type = "json";

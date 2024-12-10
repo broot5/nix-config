@@ -10,7 +10,7 @@
 
       "$terminal" = "uwsm app -- foot";
       "$fileManager" = "uwsm app -- thunar";
-      "$menu" = "uwsm app -- rofi -show run";
+      "$menu" = "uwsm app -- rofi -show combi -combi-modes 'drun,window,ssh,filebrowser' -modes combi";
 
       exec-once = [
         "uwsm app -- waybar"
@@ -112,6 +112,7 @@
         sensitivity = 0;
 
         touchpad = {
+          scroll_factor = 0.5;
           natural_scroll = true;
         };
       };
