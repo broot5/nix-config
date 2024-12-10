@@ -18,6 +18,8 @@
     btop
     neovim
 
+    networkmanagerapplet
+
     nixfmt-rfc-style
 
     imv

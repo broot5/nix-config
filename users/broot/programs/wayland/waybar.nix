@@ -90,7 +90,7 @@
         border: none;
         border-radius: 0;
         margin: 1px 0;
-        padding 0 2px;
+        padding: 0 2px;
       }
     '';
   };
