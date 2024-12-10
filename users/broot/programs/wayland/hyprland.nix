@@ -10,8 +10,7 @@
 
       "$terminal" = "uwsm app -- foot";
       "$fileManager" = "uwsm app -- thunar";
-      "$menu" =
-        "uwsm app -- rofi -show combi -combi-modes " "drun,window,ssh,filebrowser" " -modes combi";
+      "$menu" = "uwsm app -- rofi -show combi -combi-modes 'drun,window,ssh,filebrowser' -modes combi";
 
       exec-once = [
         "uwsm app -- waybar"
