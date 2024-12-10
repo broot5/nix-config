@@ -14,9 +14,8 @@
 
       exec-once = [
         "uwsm app -- waybar"
-        "uwsm app -- mako"
-        "uwsm app -- swww-daemon"
-        "uwsm app -- swww-restore"
+        "uwsm app -- swaync"
+        "uwsm app -- hyprpaper"
         "uwsm app -- nm-applet"
         "uwsm app -- blueman-applet"
         "uwsm app -- udiskie &"
