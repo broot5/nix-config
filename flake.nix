@@ -24,6 +24,11 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    disko = {
+      url = "github:nix-community/disko";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {
@@ -38,6 +43,7 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
+      disko,
       stylix,
       spicetify-nix,
       ...
@@ -48,7 +54,11 @@
         specialArgs = {
           inherit inputs;
         };
-        modules = [ ./hosts/c6sff/configuration.nix ];
+        modules = [
+          disko.nixosModules.disko
+          ./disk-config.nix
+          ./hosts/c6sff/configuration.nix
+        ];
       };
 
       nixosConfigurations.book4 = nixpkgs.lib.nixosSystem {
@@ -56,11 +66,11 @@
         specialArgs = {
           inherit inputs;
         };
-        modules = [ ./hosts/book4/configuration.nix ];
-      };
-
-      diskoConfigurations = {
-        standard = import ./disko/standard.nix;
+        modules = [
+          disko.nixosModules.disko
+          ./disk-config.nix
+          ./hosts/book4/configuration.nix
+        ];
       };
     };
 }
