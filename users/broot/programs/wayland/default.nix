@@ -7,7 +7,6 @@
 
   home.packages = with pkgs; [
     swww
-    wlogout
   ];
 
   programs.tofi = {
@@ -21,8 +20,6 @@
       padding-top = "35%";
       result-spacing = 25;
       num-results = 5;
-      font = "sanserif";
-      background-color = "#000A";
     };
   };
 
@@ -30,16 +27,13 @@
     enable = true;
     settings = {
       main = {
-        font = "Iosevka Nerd Font:size=16";
-        dpi-aware = "yes";
         pad = "20x20";
       };
     };
   };
 
-  services.mako = {
+  services.swaync = {
     enable = true;
-    defaultTimeout = 5;
   };
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
