@@ -20,6 +20,7 @@
 
     networkmanagerapplet
     hyprpolkitagent
+    brightnessctl
 
     nixfmt-rfc-style
 
