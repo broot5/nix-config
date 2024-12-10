@@ -31,6 +31,8 @@
     vscode
     telegram-desktop
     sparrow
+    logseq
+    syncthingtray
   ];
 
   services.udiskie.enable = true;

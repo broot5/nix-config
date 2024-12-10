@@ -24,6 +24,8 @@
 
     nixos-hardware.url = "github:NixOS/nixos-hardware";
 
+    stylix.url = "github:danth/stylix";
+
     spicetify-nix = {
       url = "github:Gerg-L/spicetify-nix";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -36,6 +38,7 @@
       nixpkgs,
       home-manager,
       nixos-hardware,
+      stylix,
       spicetify-nix,
       ...
     }@inputs:

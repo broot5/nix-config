@@ -1,3 +1,4 @@
+{ config, ... }:
 {
   programs.waybar = {
     enable = true;
@@ -5,20 +6,18 @@
       layer = "top";
       position = "top";
       height = 40;
-      modules-left = [
-        "hyprland/workspaces"
-        "hyprland/window"
-      ];
-      modules-center = [ "clock" ];
+      modules-left = [ "hyprland/workspaces" ];
+      modules-center = [ "hyprland/window" ];
       modules-right = [
         "group/system"
-        "custom/wlogout"
+        "clock"
+        "custom/notification"
       ];
       "group/system" = {
         orientation = "horizontal";
         modules = [
-          "wireplumber"
           "tray"
+          "wireplumber"
         ];
       };
       "hyprland/workspaces" = {
@@ -38,7 +37,7 @@
         sort-by = "number";
       };
       "hyprland/window" = {
-        format = "<span foreground=\"#A7C080\"> </span> {}";
+        format = "{}";
         max-length = 100;
       };
       "clock" = {
@@ -50,9 +49,13 @@
           mode-mon-col = 3;
         };
       };
+      "tray" = {
+        icon-size = 20;
+        spacing = 10;
+      };
       "wireplumber" = {
-        format = "<span foreground=\"#A7C080\">{icon}</span> {volume}% <span foreground=\"#3D484D\">|</span> ";
-        format-muted = "<span foreground=\"#A7C080\"></span> <span foreground=\"#3D484D\">|</span> ";
+        format = "{volume}%";
+        format-muted = "";
         format-icons = [
           ""
           ""
@@ -60,83 +63,34 @@
         ];
         on-click = "helvum";
       };
-      "tray" = {
-        icon-size = 20;
-        spacing = 10;
-      };
-      "custom/wlogout" = {
-        format = "";
-        on-click = "wlogout";
+      "custom/notification" = {
         tooltip = false;
+        format = "{icon}";
+        format-icons = {
+          "notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "none" = "";
+          "dnd-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-none" = "";
+          "inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "inhibited-none" = "";
+          "dnd-inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-inhibited-none" = "";
+        };
+        return-type = "json";
+        exec-if = "which swaync-client";
+        exec = "swaync-client -swb";
+        on-click = "swaync-client -t -sw";
+        on-click-right = "swaync-client -d -sw";
+        escape = true;
       };
     };
     style = ''
       * {
-        font-family: 'Iosevka Nerd Font', sans-serif;
-        font-size: 16px;
-        min-height: 0;
-      }
-
-      window#waybar {
-          background: rgba(45, 53, 59, 0.9);
-          border: 2px solid rgba(61, 72, 77, 0.9);
-          color: #D3C6AA;
-      }
-
-      #window, #clock, #system {
-          margin: 5px;
-          padding: 0 10px;
-          background-color: #272E33;
-          border: 2px solid #3D484D;
-          border-radius: 15px;
-      }
-
-      #window {
-          font-weight: bold;
-      }
-
-      #clock {
-          background-color: #A7C080;
-          border: 2px solid #2D353B;
-          color: #2D353B;
-          font-weight: bold;
-      }
-
-      #workspaces {
-          margin-right: 10px;
-          font-weight: bold;
-      }
-
-      #workspaces button {
-          border: none;
-          border-radius: 0;
-          color: #D3C6AA;
-          transition: all 0.3s ease-in-out;
-      }
-
-      #workspaces button.active {
-          background-color: #A7C080;
-          color: #2D353B;
-          transition: all 0.3s ease-in-out;
-      }
-
-      #workspaces button.focused {
-          background-color: #A7C080;
-      }
-
-      #workspaces button:hover {
-          box-shadow: inherit;
-          text-shadow: inherit;
-          background: #3D484D;
-          border: none;
-          color: #D3C6AA;
-      }
-
-      #custom-wlogout {
-          margin-left: 7px;
-          padding: 0 15px;
-          background-color: #A7C080;
-          color: #2D353B;
+        background: transparent;
+        border: none;
+        border-radius: 0;
+        margin: 1px 0;
+        padding 0 2px;
       }
     '';
   };

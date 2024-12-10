@@ -8,7 +8,6 @@
 {
   imports = [
     ./programs
-    ./fonts.nix
     ./locale.nix
     ./shell.nix
     ./theme.nix
