@@ -1,10 +1,10 @@
-{ rawdisk1, ... }:
+{ lib, ... }:
 {
   disko.devices = {
     disk = {
       main = {
         type = "disk";
-        device = "${rawdisk1}";
+        device = lib.mkDefault "/dev/nvme0n1";
         content = {
           type = "gpt";
           partitions = {

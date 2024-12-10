@@ -1,10 +1,7 @@
 ```bash
-sudo nix --experimental-features "nix-command flakes" run github:nix-community/disko/latest -- \
-    --mode disko \
-    --argstr rawdisk1 "/dev/nvme0n1" \
-    --flake github:broot5/nix-config#standard
-```
+git clone https://github.com/broot5/nix-config.git
 
-```bash
-sudo nixos-install --flake github:broot5/nix-config#hostname --no-write-lock-file
+sudo nix run github:nix-community/nixos-anywhere -- \
+    --generate-hardware-config nixos-generate-config nix-config/hosts/<hostname>/hardware-configuration.nix \
+    --flake nix-config#<hostname> root@<ip address>
 ```

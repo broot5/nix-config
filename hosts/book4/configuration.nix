@@ -21,6 +21,8 @@
 
   networking.hostName = "book4";
 
+  disko.devices.disk.main.device = "/dev/nvme0n1";
+
   nixpkgs.config.allowUnfree = true;
 
   hardware.intelgpu = {
