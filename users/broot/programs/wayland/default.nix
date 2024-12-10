@@ -7,7 +7,7 @@
 
   home.packages = with pkgs; [
     hyprpaper
-  ]
+  ];
 
   programs.tofi = {
     enable = true;
