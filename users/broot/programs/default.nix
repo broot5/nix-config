@@ -31,7 +31,6 @@
     vscode
     telegram-desktop
     sparrow
-    logseq
     syncthingtray
   ];
 
