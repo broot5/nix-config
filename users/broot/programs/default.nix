@@ -19,6 +19,7 @@
     neovim
 
     networkmanagerapplet
+    hyprpolkitagent
 
     nixfmt-rfc-style
 

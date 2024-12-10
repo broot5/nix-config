@@ -10,7 +10,7 @@
 
       "$terminal" = "uwsm app -- foot";
       "$fileManager" = "uwsm app -- thunar";
-      "$menu" = "uwsm app -- tofi-drun --drun-launch=true";
+      "$menu" = "uwsm app -- rofi -show run";
 
       exec-once = [
         "uwsm app -- waybar"
@@ -18,7 +18,8 @@
         "uwsm app -- hyprpaper"
         "uwsm app -- nm-applet"
         "uwsm app -- blueman-applet"
-        "uwsm app -- udiskie &"
+        "uwsm app -- udiskie"
+        "systemctl --user start hyprpolkitagent"
       ];
       env = [
         "XCURSOR_SIZE,24"
