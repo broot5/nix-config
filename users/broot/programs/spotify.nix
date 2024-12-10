@@ -1,4 +1,9 @@
-{ inputs, pkgs, ... }:
+{
+  inputs,
+  lib,
+  pkgs,
+  ...
+}:
 {
   imports = [
     inputs.spicetify-nix.homeManagerModules.default
@@ -15,7 +20,7 @@
         hidePodcasts
         adblock
       ];
-      theme = spicePkgs.themes.comfy;
-      colorScheme = "Everforest";
+      theme = lib.mkForce spicePkgs.themes.comfy;
+      colorScheme = lib.mkForce "Kanagawa";
     };
 }

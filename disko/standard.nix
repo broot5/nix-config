@@ -1,4 +1,4 @@
-{ rawdisk1 }:
+{ rawdisk1, ... }:
 {
   disko.devices = {
     disk = {

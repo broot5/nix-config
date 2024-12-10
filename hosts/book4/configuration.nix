@@ -12,7 +12,6 @@
     inputs.nixos-hardware.nixosModules.common-hidpi
     inputs.nixos-hardware.nixosModules.common-cpu-intel
     inputs.nixos-hardware.nixosModules.common-pc-laptop
-    inputs.nixos-hardware.nixosModules.common-pc-laptop-acpi_call
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     ../../modules

@@ -5,10 +5,6 @@
     ./waybar.nix
   ];
 
-  home.packages = with pkgs; [
-    swww
-  ];
-
   programs.tofi = {
     enable = true;
     settings = {
@@ -34,6 +30,13 @@
 
   services.swaync = {
     enable = true;
+  };
+
+  services.hyprpaper = {
+    enable = true;
+    settings = {
+      ipc = "off";
+    };
   };
 
   home.sessionVariables.NIXOS_OZONE_WL = "1";
