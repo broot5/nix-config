@@ -18,6 +18,7 @@
         modules = [
           "tray"
           "wireplumber"
+          "backlight"
         ];
       };
       "hyprland/workspaces" = {
@@ -63,6 +64,9 @@
         ];
         on-click = "helvum";
       };
+      "backlight" = {
+        format = "{percent}%";
+      };
       "custom/notification" = {
         tooltip = false;
         format = "{icon}";
@@ -84,14 +88,6 @@
         escape = true;
       };
     };
-    style = ''
-      * {
-        background: transparent;
-        border: none;
-        border-radius: 0;
-        margin: 1px 0;
-        padding: 0 2px;
-      }
-    '';
+    style = '''';
   };
 }
