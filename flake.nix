@@ -55,5 +55,9 @@
         };
         modules = [ ./hosts/book4/configuration.nix ];
       };
+
+      diskoConfigurations = {
+        standard = import ./disko/standard.nix;
+      };
     };
 }

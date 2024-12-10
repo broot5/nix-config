@@ -1,6 +1,4 @@
-let
-  rawdisk1 = "/dev/nvme0n1";
-in
+{ rawdisk1 }:
 {
   disko.devices = {
     disk = {
