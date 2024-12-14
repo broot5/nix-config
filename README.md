@@ -1,7 +1,7 @@
 ```bash
-git clone https://github.com/broot5/nix-config.git
+wget https://raw.githubusercontent.com/broot5/nix-config/refs/heads/main/install.sh
 
-nix --extra-experimental-features "nix-command flakes" run github:nix-community/nixos-anywhere -- \
-    --generate-hardware-config nixos-generate-config nix-config/hosts/<hostname>/hardware-configuration.nix \
-    --flake ./nix-config#<hostname> root@<ip address>
+chmod +x install.sh
+
+HOSTNAME=my-host REMOTE_USER=root REMOTE_IP_ADDRESS=192.168.0.1 ./install.sh
 ```
