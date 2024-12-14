@@ -18,8 +18,6 @@
     inputs.nixos-hardware.nixosModules.common-pc-ssd
 
     ../../modules
-
-    inputs.home-manager.nixosModules.home-manager
   ];
 
   networking.hostName = "c6sff";
@@ -39,25 +37,6 @@
     offload.enable = lib.mkForce false;
     # nvidiaBusId = "PCI:1:0:0";
     # amdgpuBusId = "PCI:16:0:0";
-  };
-
-  users.users.broot = {
-    isNormalUser = true;
-    home = "/home/broot";
-    initialPassword = "password";
-    extraGroups = [ "wheel" ];
-    uid = 1000;
-    shell = pkgs.fish;
-    ignoreShellProgramCheck = true;
-  };
-
-  home-manager = {
-    extraSpecialArgs = {
-      inherit inputs;
-    };
-    useGlobalPkgs = true;
-    useUserPackages = true;
-    users.broot = import ../../users/broot;
   };
 
   system.stateVersion = "24.11";

@@ -29,6 +29,16 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    sops-nix = {
+      url = "github:mic92/sops-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    nix-secrets = {
+      url = "git+ssh://git@github.com/broot5/nix-secrets.git?shallow=1&ref=main";
+      flake = false;
+    };
+
     stylix.url = "github:danth/stylix";
 
     spicetify-nix = {

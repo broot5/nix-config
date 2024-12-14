@@ -17,6 +17,7 @@
     fastfetch
     btop
     neovim
+    gh
 
     networkmanagerapplet
     hyprpolkitagent
