@@ -35,7 +35,7 @@
     };
 
     nix-secrets = {
-      url = "git+ssh://git@github.com/broot5/nix-secrets.git?shallow=1&ref=main";
+      url = "git+ssh://git@github.com/broot5/nix-secrets.git?ref=main&shallow=1";
       flake = false;
     };
 
