@@ -1,4 +1,4 @@
-{ inputs, ... }:
+{ inputs, config, ... }:
 let
   secretsPath = builtins.toString inputs.nix-secrets;
 in
@@ -8,9 +8,9 @@ in
   sops = {
     defaultSopsFile = "${secretsPath}/secrets/secrets.yaml";
 
-    age.keyFile = "/home/broot/.config/sops/age/keys.txt";
+    age.sshKeyPaths = [ "/home/broot/.ssh/id_ed25519" ];
 
-    secerts = {
+    secrets = {
       "private_keys/broot" = {
         path = "/home/broot/.ssh/id_ed25519";
       };
