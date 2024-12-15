@@ -42,7 +42,7 @@
         yt-dlp
         upscayl
 
-        firefox-bin
+        devbox
         vscode
         telegram-desktop
         syncthingtray
