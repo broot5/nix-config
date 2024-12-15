@@ -23,7 +23,7 @@
     };
   };
 
-  services.fnott = {
+  services.mako = {
     enable = true;
   };
 

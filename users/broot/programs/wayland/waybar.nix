@@ -27,7 +27,6 @@
         "wireplumber"
         "backlight"
         "battery"
-        "custom/fnott"
       ];
 
       "hyprland/workspaces" = {
@@ -55,8 +54,8 @@
       };
 
       clock = {
-        format = "  {:%H:%M}";
-        format-alt = "  {:%F %H:%M}";
+        format = "  {:%H:%M}";
+        format-alt = "  {:%F %H:%M}";
         tooltip-format = ''
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>
@@ -141,16 +140,6 @@
           ""
           ""
         ];
-      };
-      "custom/fnott" = {
-        return-type = "json";
-        exec = "fnott-dnd -w";
-        exec-if = "which fnott-dnd";
-        interval = "once";
-        signal = 2;
-
-        on-click = "fnottctl dismiss";
-        on-click-right = "fnott-dnd";
       };
     };
     style =
@@ -333,15 +322,6 @@
         #tray > .needs-attention {
           -gtk-icon-effect: highlight;
           background-color: @base0A;
-        }
-
-        #custom-fnott {
-          background: @base01;
-        }
-
-        #custom-fnott.dnd-on {
-          color: @base00;
-          background: @base0A;
         }
       '';
   };

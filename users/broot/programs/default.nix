@@ -1,9 +1,15 @@
-{ pkgs, ... }:
+{
+  inputs,
+  pkgs,
+  ...
+}:
 {
   imports = [
     ./wayland
     ./git.nix
     ./spotify.nix
+
+    "${builtins.toString inputs.nix-secrets}/pkgs.nix"
   ];
 
   home.packages = with pkgs; [
@@ -37,7 +43,6 @@
     firefox-bin
     vscode
     telegram-desktop
-    sparrow
     syncthingtray
   ];
 
