@@ -12,39 +12,46 @@
     "${builtins.toString inputs.nix-secrets}/pkgs.nix"
   ];
 
-  home.packages = with pkgs; [
-    bash
-    wget
-    unzip
-    eza
-    bat
-    fzf
-    yazi
-    fastfetch
-    btop
-    neovim
-    gh
+  home.packages =
+    let
+      withPkgs = with pkgs; [
+        bash
+        wget
+        unzip
+        eza
+        bat
+        fzf
+        yazi
+        fastfetch
+        btop
+        neovim
+        gh
 
-    networkmanagerapplet
-    hyprpolkitagent
-    brightnessctl
-    pwvucontrol
-    playerctl
+        networkmanagerapplet
+        hyprpolkitagent
+        brightnessctl
+        pwvucontrol
+        playerctl
 
-    nixfmt-rfc-style
+        nixfmt-rfc-style
 
-    imv
-    mpv
-    helvum
-    zathura
-    yt-dlp
-    upscayl
+        imv
+        mpv
+        helvum
+        zathura
+        yt-dlp
+        upscayl
 
-    firefox-bin
-    vscode
-    telegram-desktop
-    syncthingtray
-  ];
+        firefox-bin
+        vscode
+        telegram-desktop
+        syncthingtray
+      ];
+      withoutPkgs = [
+        inputs.zen-browser.packages.x86_64-linux.specific
+      ];
+    in
+    withPkgs ++ withoutPkgs;
 
   services.udiskie.enable = true;
 }
