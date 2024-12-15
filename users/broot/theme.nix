@@ -33,8 +33,8 @@
   stylix.enable = true;
   stylix.autoEnable = true;
   stylix.image = pkgs.fetchurl {
-    url = "https://w.wallhaven.cc/full/ox/wallhaven-oxkdd9.png";
-    sha256 = "19d94hpr0i9dbh31qc4i6935nddvivpnznbij97cwyg982cacjqy";
+    url = "https://github.com/danihek/dh-wallpapers/blob/main/artwork-anime-landscape-painting-wallpaper-8b962c8d7321cf3955046b39ddaccc80.jpg?raw=true";
+    sha256 = "1byqfrx71j0kd6ym14csw05gxni8v8zd68anwgpk36z5ac1cim43";
   };
   stylix.base16Scheme = "${pkgs.base16-schemes}/share/themes/kanagawa.yaml";
   stylix.fonts = {

@@ -10,7 +10,7 @@
 
       "$terminal" = "uwsm app -- foot";
       "$fileManager" = "uwsm app -- thunar";
-      "$menu" = "uwsm app -- rofi -show combi -combi-modes 'drun,window,ssh,filebrowser' -modes combi";
+      "$menu" = "uwsm app -- rofi -show combi";
 
       exec-once = [
         "uwsm app -- waybar"
@@ -122,8 +122,8 @@
       };
 
       device = {
-        name = "epic-mouse-v1";
-        sensitivity = -0.5;
+        name = "znt0001:00-14e5:e760-touchpad";
+        sensitivity = -0.2;
       };
 
       "$mainMod" = "SUPER";

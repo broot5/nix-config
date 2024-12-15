@@ -12,6 +12,13 @@
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
+    cycle = true;
+    terminal = "foot";
+    extraConfig = {
+      combi-modi = "window,drun,ssh,filebrowser,run";
+      sidebar-mode = true;
+      show-icons = true;
+    };
   };
 
   programs.foot = {
