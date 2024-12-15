@@ -10,7 +10,6 @@
     ./programs
     ./locale.nix
     ./shell.nix
-    ./sops.nix
     ./theme.nix
   ];
 

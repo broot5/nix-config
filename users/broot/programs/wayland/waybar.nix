@@ -71,8 +71,8 @@
       };
       backlight = {
         format = " {percent}%";
-        on-scroll-up = "${lib.getExe pkgs.brightnessctl} set +10%";
-        on-scroll-down = "${lib.getExe pkgs.brightnessctl} set -10%";
+        on-scroll-up = "${lib.getExe pkgs.brightnessctl} set +1%";
+        on-scroll-do = "${lib.getExe pkgs.brightnessctl} set -1%";
       };
       battery = {
         format-icons = [
@@ -94,13 +94,13 @@
         tooltip = false;
         format = "{icon}";
         format-icons = {
-          "notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "notification" = "<span foreground=${config.lib.stylix.colors.withHashtag.red}><sup></sup></span>";
           "none" = "";
-          "dnd-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-notification" = "<span foreground=${config.lib.stylix.colors.withHashtag.red}><sup></sup></span>";
           "dnd-none" = "";
-          "inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "inhibited-notification" = "<span foreground=${config.lib.stylix.colors.withHashtag.red}><sup></sup></span>";
           "inhibited-none" = "";
-          "dnd-inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-inhibited-notification" = "<span foreground=${config.lib.stylix.colors.withHashtag.red}><sup></sup></span>";
           "dnd-inhibited-none" = "";
         };
         return-type = "json";
@@ -116,7 +116,7 @@
         margin: 0 0.5em;
       }
       #tray {
-        color: ${config.lib.stylix.colors.base05}
+        color: ${config.lib.stylix.colors.withHashtag.base05}
       }
     '';
   };
