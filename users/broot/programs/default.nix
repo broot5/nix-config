@@ -22,6 +22,7 @@
     networkmanagerapplet
     hyprpolkitagent
     brightnessctl
+    pavucontrol
 
     nixfmt-rfc-style
 

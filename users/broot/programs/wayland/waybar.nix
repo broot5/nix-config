@@ -1,26 +1,28 @@
-{ config, ... }:
+{
+  lib,
+  config,
+  pkgs,
+  ...
+}:
 {
   programs.waybar = {
     enable = true;
     settings.mainBar = {
-      layer = "top";
       position = "top";
       height = 40;
-      modules-left = [ "hyprland/workspaces" ];
-      modules-center = [ "hyprland/window" ];
+      modules-left = [
+        "hyprland/workspaces"
+        "hyprland/submap"
+        "hyprland/window"
+      ];
+      modules-center = [ "clock" ];
       modules-right = [
-        "group/system"
-        "clock"
+        "tray"
+        "pulseaudio"
+        "backlight"
+        "battery"
         "custom/notification"
       ];
-      "group/system" = {
-        orientation = "horizontal";
-        modules = [
-          "tray"
-          "wireplumber"
-          "backlight"
-        ];
-      };
       "hyprland/workspaces" = {
         format = "{icon}";
         format-icons = {
@@ -41,26 +43,52 @@
         format = "{}";
         max-length = 100;
       };
-      "clock" = {
+      clock = {
         format = "{:%H:%M}";
         format-alt = "{:%F %H:%M}";
+        tooltip-format = ''
+          <big>{:%Y %B}</big>
+          <tt><small>{calendar}</small></tt>
+        '';
       };
-      "tray" = {
+      tray = {
         icon-size = 20;
         spacing = 10;
       };
-      "wireplumber" = {
-        format = "{volume}%";
-        format-muted = "";
-        format-icons = [
-          ""
-          ""
-          ""
-        ];
-        on-click = "helvum";
+      pulseaudio = {
+        format-source = "󰍬 {volume}%";
+        format-source-muted = "󰍭 0%";
+        format = "{icon} {volume}% {format_source}";
+        format-muted = "󰸈 0% {format_source}";
+        format-icons = {
+          default = [
+            "󰕿"
+            "󰖀"
+            "󰕾"
+          ];
+        };
+        on-click = lib.getExe pkgs.pavucontrol;
       };
-      "backlight" = {
-        format = "{percent}%";
+      backlight = {
+        format = " {percent}%";
+        on-scroll-up = "${lib.getExe pkgs.brightnessctl} set +10%";
+        on-scroll-down = "${lib.getExe pkgs.brightnessctl} set -10%";
+      };
+      battery = {
+        format-icons = [
+          "󰁺"
+          "󰁻"
+          "󰁼"
+          "󰁽"
+          "󰁾"
+          "󰁿"
+          "󰂀"
+          "󰂁"
+          "󰂂"
+          "󰁹"
+        ];
+        format = "{icon} {capacity}%";
+        format-charging = "󰂄 {capacity}%";
       };
       "custom/notification" = {
         tooltip = false;
@@ -72,8 +100,7 @@
           "dnd-none" = "";
           "inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
           "inhibited-none" = "";
-          "dnd-inhibited-notification" =
-            "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
+          "dnd-inhibited-notification" = "<span foreground=${config.lib.stylix.colors.red}><sup></sup></span>";
           "dnd-inhibited-none" = "";
         };
         return-type = "json";
@@ -84,6 +111,13 @@
         escape = true;
       };
     };
-    style = '''';
+    style = ''
+      * {
+        margin: 0 0.5em;
+      }
+      #tray {
+        color: ${config.lib.stylix.colors.base05}
+      }
+    '';
   };
 }
