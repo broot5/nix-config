@@ -23,6 +23,7 @@
     hyprpolkitagent
     brightnessctl
     pwvucontrol
+    playerctl
 
     nixfmt-rfc-style
 

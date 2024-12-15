@@ -14,7 +14,7 @@
 
       exec-once = [
         "uwsm app -- waybar"
-        "uwsm app -- swaync"
+        "uwsm app -- fnott"
         "uwsm app -- hyprpaper"
         "uwsm app -- nm-applet"
         "uwsm app -- blueman-applet"

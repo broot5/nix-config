@@ -5,28 +5,32 @@
   ...
 }:
 {
+  # Reference = https://github.com/MrSom3body/dotfiles/tree/main/home/programs/wayland/waybar
   programs.waybar = {
     enable = true;
     settings.mainBar = {
       layer = "top";
       position = "top";
-      height = 40;
+      spacing = 0;
+
       modules-left = [
         "hyprland/workspaces"
         "hyprland/window"
       ];
-      modules-center = [ "clock" ];
+      modules-center = [
+        "clock"
+        "mpris"
+      ];
       modules-right = [
         "privacy"
         "tray"
         "wireplumber"
         "backlight"
         "battery"
-        "custom/swaync"
+        "custom/fnott"
       ];
+
       "hyprland/workspaces" = {
-        show-special = true;
-        special-visible-only = true;
         format = "{icon}";
         format-icons = {
           "1" = "1";
@@ -40,25 +44,61 @@
           "9" = "9";
           "10" = "10";
         };
+        persistent-workspaces = {
+          "*" = 5;
+        };
       };
       "hyprland/window" = {
         format = "{title}";
         max-length = 50;
         icon = true;
       };
+
       clock = {
-        format = "{:%H:%M}";
-        format-alt = "{:%F %H:%M}";
+        format = "  {:%H:%M}";
+        format-alt = "  {:%F %H:%M}";
         tooltip-format = ''
           <big>{:%Y %B}</big>
           <tt><small>{calendar}</small></tt>
         '';
+
+        calendar = {
+          mode = "month";
+          weeks-pos = "left";
+          mode-mon-col = 3;
+          format = with config.lib.stylix.colors.withHashtag; {
+            months = "<span color='${base06}'><b>{}</b></span>";
+            days = "<span color='${base05}'><b>{}</b></span>";
+            weeks = "<span color='${base0E}'><b>W{}</b></span>";
+            weekdays = "<span color='${base0A}'><b>{}</b></span>";
+            today = "<span color='${base0B}'><b><u>{}</u></b></span>";
+          };
+        };
       };
+      mpris = {
+        player = "spotify";
+        format = "{player_icon} {status_icon} <b>{title}</b> by <i>{artist}</i>";
+        tooltip-format = "Album: {album}";
+        artist-len = 12;
+        title-len = 22;
+        ellipsis = "...";
+        player-icons = {
+          default = "";
+          spotify = "󰓇";
+          kdeconnect = "";
+        };
+        status-icons = {
+          paused = "󰏤";
+        };
+        on-scroll-up = "playerctl volume 0.1+";
+        on-scroll-down = "playerctl volume 0.1-";
+      };
+
       tray = {
         spacing = 5;
       };
       wireplumber = {
-        format = "{icon} {volume}%";
+        format = "{icon}  {volume}%";
         format-muted = "󰝟";
         format-icons = [
           "󰕿"
@@ -68,7 +108,7 @@
         on-click = lib.getExe pkgs.pwvucontrol;
       };
       backlight = {
-        format = "{icon} {percent}%";
+        format = "{icon}  {percent}%";
         format-icons = [
           "󱩎"
           "󱩏"
@@ -83,12 +123,17 @@
         ];
         on-scroll-up = "${lib.getExe pkgs.brightnessctl} set +1%";
         on-scroll-down = "${lib.getExe pkgs.brightnessctl} set 1%-";
+        tooltip = false;
       };
       battery = {
-        format = "{icon} {capacity}%";
-        format-charging = "󱐋 {capacity}%";
-        format-plugged = " {capacity}%";
-        format-alt = "{icon} {time}";
+        states = {
+          warning = 30;
+          critical = 15;
+        };
+        format = "{icon}  {capacity}%";
+        format-charging = "󱐋  {capacity}%";
+        format-plugged = "  {capacity}%";
+        format-alt = "{icon}  {time}";
         format-icons = [
           ""
           ""
@@ -97,30 +142,20 @@
           ""
         ];
       };
-      "custom/swaync" = {
-        tooltip = false;
-        format = "{icon}";
-        format-icons = {
-          notification = "󱅫";
-          none = "󰂚";
-          dnd-notification = "󰂛";
-          dnd-none = "󰂛";
-          inhibited-notification = "󰂛";
-          inhibited-none = "󰂛";
-          dnd-inhibited-notification = "󰂛";
-          dnd-inhibited-none = "󰂛";
-        };
+      "custom/fnott" = {
         return-type = "json";
-        exec-if = "which swaync-client";
-        exec = "swaync-client -swb";
-        on-click = "swaync-client -t -sw";
-        on-click-right = "swaync-client -d -sw";
-        escape = true;
+        exec = "fnott-dnd -w";
+        exec-if = "which fnott-dnd";
+        interval = "once";
+        signal = 2;
+
+        on-click = "fnottctl dismiss";
+        on-click-right = "fnott-dnd";
       };
     };
     style =
       let
-        rounding = "5";
+        rounding = "10";
       in
       with config.lib.stylix.colors.withHashtag;
       ''
@@ -147,7 +182,7 @@
         }
 
         window#waybar {
-          background: alpha(@base00, ${builtins.toString (config.stylix.opacity.desktop - 2.0e-2)});
+          background: alpha(@base00, ${builtins.toString (config.stylix.opacity.desktop - 0.2)});
           transition: all 0.3s ease-in-out;
         }
 
@@ -157,7 +192,7 @@
           border-radius: 15px;
 
           padding: 0.2em 0.5em;
-          margin: 0.4em 0.2em;
+          margin: 0.2em 0.2em;
         }
 
         .modules-left:first-child {
@@ -170,7 +205,7 @@
 
         tooltip {
           background: @base00;
-          border: 3px solid @base0D;
+          border: 2px solid @base0D;
           border-radius: ${rounding}px;
         }
 
@@ -234,7 +269,7 @@
           border-radius: 15px;
 
           padding: 0.2em 0.5em;
-          margin: 0.4em 0.2em;
+          margin: 0.2em 0.2em;
         }
 
         #backlight {
@@ -300,17 +335,11 @@
           background-color: @base0A;
         }
 
-        #custom-swaync {
+        #custom-fnott {
           background: @base01;
         }
 
-        #custom-swaync.dnd-notification,
-        #custom-swaync.dnd-inhibited-notification {
-          background: @base02;
-        }
-
-        #custom-swaync.notification,
-        #custom-swaync.inhibited-notification {
+        #custom-fnott.dnd-on {
           color: @base00;
           background: @base0A;
         }

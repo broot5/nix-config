@@ -23,7 +23,7 @@
     };
   };
 
-  services.swaync = {
+  services.fnott = {
     enable = true;
   };
 
